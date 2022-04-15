@@ -8,7 +8,7 @@ function startServer({ typeDefs, resolvers }) {
     useUnifiedTopology: true,
   }, (err) => {
     if (err) {
-      console.log(err)
+      console.log(err.message)
       return
     }
     console.log('Connected to MongoDB')
