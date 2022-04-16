@@ -6,7 +6,12 @@ export default {
     author: async (post) => await User.findById(post.author),
   },
   Query: {
-    posts: async () => await Post.find(),
+    posts: async (_, { userId }) => {
+      if (userId) {
+        return await Post.find({ author: userId });
+      }
+      return await Post.find();
+    },
     post: async (_, { id }) => await Post.findById(id),
   },
   Mutation: {

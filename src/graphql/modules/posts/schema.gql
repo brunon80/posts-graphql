@@ -12,7 +12,7 @@ input PostInput {
 }
 
 type Query {
-  posts: [Post!]!
+  posts(userId: ID): [Post!]!
   post(id: ID!): Post!
 }
 
