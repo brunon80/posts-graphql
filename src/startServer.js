@@ -3,7 +3,7 @@ import { PubSub } from 'graphql-subscriptions'
 import mongoose from 'mongoose'
 
 function startServer({ typeDefs, resolvers }) {
-  mongoose.connect('mongodb+srv://apollo-gql:IEwYaaSKeghjOZNg@gql.bcjyd.mongodb.net/graphql?retryWrites=true&w=majority', {
+  mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }, (err) => {
